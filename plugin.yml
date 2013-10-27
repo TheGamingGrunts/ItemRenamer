@@ -1,0 +1,11 @@
+name: ItemRenamer
+version: 1.0
+main: com.gmail.thegurugamers.Main
+description: Item Stuff!
+author: TheGamingGrunts
+website: www.youtube.com/TheGamingGrunts
+commands:
+  rename:
+    description: Rename your item!
+  setlore:
+    description: Set a description of your item!

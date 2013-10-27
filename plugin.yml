@@ -7,5 +7,4 @@ website: www.youtube.com/TheGamingGrunts
 commands:
   rename:
     description: Rename your item!
-  setlore:
-    description: Set a description of your item!
+    permission: renamer.rename

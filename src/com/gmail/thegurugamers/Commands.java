@@ -13,6 +13,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class Commands implements CommandExecutor {
 	
+	ChatColor red = ChatColor.DARK_RED;
+	
 	public boolean onCommand(CommandSender sender, Command command, String commandLabel, String[] args){
 		Player p = (Player) sender;
 		ItemStack item = new ItemStack(p.getInventory().getItemInHand());
@@ -26,13 +28,11 @@ public class Commands implements CommandExecutor {
 		String dname = str.toString();
 		//String lname = str.toString();
 	      
-	      
 		if (!(item.getType() == Material.AIR)){
 			itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', dname));
 			//itemMeta.setLore(Arrays.asList(ChatColor.translateAlternateColorCodes('&', lname)));
 			itemMeta.setLore(Arrays.asList(ChatColor.GREEN + "Owner: " + ChatColor.RED + p.getName()));
 			item.setDurability(item.getDurability());
-              
 		}
 	      
 		if (sender instanceof Player){
@@ -41,28 +41,29 @@ public class Commands implements CommandExecutor {
 					if (args.length > 1){
 						if (args[0].equalsIgnoreCase("rename")){
 							if (!(item.getType() == Material.AIR)){
-								p.getInventory().removeItem(p.getInventory().getItemInHand());
+								p.getInventory().removeItem(item);
 	    				  		p.sendMessage(ChatColor.AQUA + "You renamed your " + ChatColor.RED + 
-	    				  				item.getType() + ChatColor.AQUA + " to " + ChatColor.WHITE + ChatColor.translateAlternateColorCodes('&', dname)); 
+	    				  				item.getType() + ChatColor.AQUA + " to " + ChatColor.WHITE + 
+	    				  				ChatColor.translateAlternateColorCodes('&', dname)); 
 	    				  		item.setItemMeta(itemMeta);
 	    				  		p.getInventory().addItem(item);
 					
 							}else{
-								p.sendMessage(ChatColor.DARK_RED + "You must have an item in hand to do that!");
+								p.sendMessage(red + "You must have an item in hand to do that!");
 							}
 						}
 	    			  
 					}else{
-						sender.sendMessage(ChatColor.DARK_RED + "Not enough arguments! Try /rename <name>");
+						sender.sendMessage(red + "Not enough arguments! Try /rename <name>");
 					}
 	    		  
 				}else{
-					sender.sendMessage(ChatColor.DARK_RED + "You don't have permission to rename your item :(");
+					sender.sendMessage(red + "You don't have permission to rename your item :(");
 				}
 			}
 	    	  
 		}else{
-			sender.sendMessage(ChatColor.DARK_RED + "You must be a player in order to use that command!");
+			sender.sendMessage(red + "You must be a player in order to use that command!");
 		}
 	      
 		return false;

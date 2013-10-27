@@ -21,7 +21,7 @@ public class Main extends JavaPlugin {
 		
 	}
 	
-	@SuppressWarnings("unused")
+	
 	public boolean onCommand(CommandSender sender, Command command, String commandLabel, String[] args){
 		Player p = (Player) sender;
 		ItemStack item = new ItemStack(p.getInventory().getItemInHand());

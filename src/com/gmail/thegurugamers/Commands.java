@@ -27,12 +27,14 @@ public class Commands implements CommandExecutor {
 	     //String lname = str.toString();
 	      
 	      
-	      itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', dname));
-	      //itemMeta.setLore(Arrays.asList(ChatColor.translateAlternateColorCodes('&', lname)));
-	      itemMeta.setLore(Arrays.asList(ChatColor.GREEN + "Owner: " + ChatColor.RED + p.getName()));
-	      ((ItemStack) itemMeta).setDurability(((ItemStack) item.getItemMeta()).getDurability());
+	      if (!(item.getType() == Material.AIR)){
+	    	  itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', dname));
+              //itemMeta.setLore(Arrays.asList(ChatColor.translateAlternateColorCodes('&', lname)));
+              itemMeta.setLore(Arrays.asList(ChatColor.GREEN + "Owner: " + ChatColor.RED + p.getName()));
+              item.setDurability(item.getDurability());
+              
+	      }
 	      
-
 	      if (commandLabel.equalsIgnoreCase("rename")) {
 	    	  if (p.hasPermission("renamer.rename")){
 	    		  if (args.length > 0){

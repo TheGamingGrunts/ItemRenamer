@@ -5,6 +5,6 @@ description: Item Stuff!
 author: TheGamingGrunts
 website: www.youtube.com/TheGamingGrunts
 commands:
-  rename:
+  item:
     description: Rename your item!
     permission: renamer.rename

@@ -51,6 +51,8 @@ public class Commands implements CommandExecutor {
 							}else{
 								p.sendMessage(red + "You must have an item in hand to do that!");
 							}
+						}else{
+							
 						}
 	    			  
 					}else{
